@@ -1,3 +1,3 @@
-# learn_algorithms
+# The learning algorithm.
 
-알고리즘 학습한 내용들을 코드로 올립니다.
+The directory is divided by website.
