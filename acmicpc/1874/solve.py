@@ -22,9 +22,11 @@ def validation(max_input_num, check_sequence):
 
     if len(check_sequence) != 0:
         print("NO")
+        return
 
     for oper in stack_oper:
         print(oper)
+    return
 
 
 if __name__ == '__main__':
