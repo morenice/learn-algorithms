@@ -31,21 +31,24 @@ class PocketBookTest(unittest.TestCase):
         Pikachu
         Raichu
         """
-        self.pocket_book = solve.create_pocketbook()
+        self.pocketbook = solve.create_pocketbook()
         for data in input_data.split():
-            self.pocket_book.append(data)
+            solve.add_pocketbook(self.pocketbook, data)
+
+        self.bs_pocketbook, self.bs_keys = solve.create_bs_pocketbook(self.pocketbook)
 
     def tearDown(self):
-        del(self.pocket_book)
+        del(self.pocketbook)
 
     def test_find_pocket_by_name(self):
-        self.assertEqual(solve.find_pocketbook_by_name(self.pocket_book, 'Bulbasaur'), 1)
-        self.assertEqual(solve.find_pocketbook_by_name(self.pocket_book, 'Ekans'), 23)
-        self.assertEqual(solve.find_pocketbook_by_name(self.pocket_book, 'Pikachu'), 25)
+        self.assertEqual(solve.find_bs_pocketbook(self.bs_pocketbook, self.bs_keys, 'Bulbasaur'), 1)
+        self.assertEqual(solve.find_bs_pocketbook(self.bs_pocketbook, self.bs_keys, 'Ekans'), 23)
+        self.assertEqual(solve.find_bs_pocketbook(self.bs_pocketbook, self.bs_keys, 'Pikachu'), 25)
 
     def test_find_pocket_by_index(self):
-        self.assertEqual(solve.find_pocketbook_by_index(self.pocket_book, 23), 'Ekans')
-        self.assertEqual(solve.find_pocketbook_by_index(self.pocket_book, 22), 'Fearow')
+        self.assertEqual(solve.find_pocketbook(self.pocketbook, 1), 'Bulbasaur')
+        self.assertEqual(solve.find_pocketbook(self.pocketbook, 22), 'Fearow')
+        self.assertEqual(solve.find_pocketbook(self.pocketbook, 22), 'Fearow')
 
 
 if __name__ == '__main__':

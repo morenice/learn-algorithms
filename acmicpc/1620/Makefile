@@ -1,5 +1,7 @@
 all : test
-	python3 solve.py < input.txt
+	@echo 'Run solve.py ...'
+	@python3 solve.py < input.txt
 
 test :
-	python3 -m unittest
+	@echo 'Run unit test...'
+	@python3 -m unittest

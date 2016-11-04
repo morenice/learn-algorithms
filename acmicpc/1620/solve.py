@@ -1,30 +1,46 @@
+import bisect
+
+
 def create_pocketbook():
     return list()
 
 
-def find_pocketbook_by_name(pocketbook, name):
-    for i, pocket in enumerate(pocketbook):
-        if pocket == name:
-            return i+1
-    return -1
+def add_pocketbook(pocketbook, pocketmon):
+    pocketbook.append(pocketmon)
 
 
-def find_pocketbook_by_index(pocketbook, index):
+def find_pocketbook(pocketbook, index):
     return pocketbook[index-1]
 
 
-if __name__ == '__main__':
-    input_data = input().split()
-    n = int(input_data[0])
-    m = int(input_data[1])
+def create_bs_pocketbook(pocketbook):
+    """ pocketbook for binary searching """
+    bs_pocketbook = []
+    for i, pocketmon in enumerate(pocketbook):
+        bs_pocketbook.append((pocketmon, i))
 
+    bs_pocketbook.sort(key=lambda r: r[0])
+    bs_keys = [p[0] for p in bs_pocketbook]
+    return bs_pocketbook, bs_keys
+
+
+def find_bs_pocketbook(bs_pocketbook, bs_keys, name):
+    """ pocketbook for binary searching """
+    bs_index = bisect.bisect_left(bs_keys, name)
+    return (bs_pocketbook[bs_index][1] + 1)
+
+
+if __name__ == '__main__':
+    n, m = map(int, input().split())
     pocketbook = create_pocketbook()
 
     for i in range(0, n):
         pocketmon = input()
-        pocketbook.append(pocketmon)
+        add_pocketbook(pocketbook, pocketmon)
 
-    for i in range(0,m):
+    bs_pocketbook, bs_keys = create_bs_pocketbook(pocketbook)
+
+    for i in range(0, m):
         search_string = input()
         search_num = -1
         try:
@@ -33,6 +49,6 @@ if __name__ == '__main__':
             pass
 
         if search_num == -1:
-            print(find_pocketbook_by_name(pocketbook, search_string))
+            print(find_bs_pocketbook(bs_pocketbook, bs_keys, search_string))
         else:
-            print(find_pocketbook_by_index(pocketbook, search_num))
+            print(find_pocketbook(pocketbook, search_num))
