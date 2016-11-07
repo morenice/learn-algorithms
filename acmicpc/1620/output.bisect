@@ -1,0 +1,22 @@
+         5265873 function calls in 6.790 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  1077017    2.713    0.000    2.719    0.000 {built-in method builtins.input}
+        1    0.360    0.360    1.973    1.973 solve.py:26(create_bs_pocketbook)
+        1    1.263    1.263    1.373    1.373 {method 'sort' of 'list' objects}
+   122270    0.982    0.000    0.982    0.000 {built-in method builtins.print}
+   122269    0.188    0.000    0.796    0.000 solve.py:37(find_bs_pocketbook)
+   122269    0.607    0.000    0.607    0.000 {built-in method _bisect.bisect_left}
+   954746    0.237    0.000    0.320    0.000 solve.py:11(add_pocketbook)
+        1    0.166    0.166    0.166    0.166 solve.py:33(<listcomp>)
+  1909492    0.157    0.000    0.157    0.000 {method 'append' of 'list' objects}
+   954746    0.110    0.000    0.110    0.000 solve.py:32(<lambda>)
+     1019    0.003    0.000    0.006    0.000 /usr/local/Cellar/python3/3.5.2_1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/codecs.py:318(decode)
+     1019    0.003    0.000    0.003    0.000 {built-in method _codecs.utf_8_decode}
+     1019    0.001    0.000    0.001    0.000 /usr/local/Cellar/python3/3.5.2_1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/codecs.py:330(getstate)
+        1    0.000    0.000    0.000    0.000 solve.py:7(create_pocketbook)
+        1    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 solve.py:22(find_pocketbook)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}

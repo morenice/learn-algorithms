@@ -32,10 +32,13 @@ class PocketBookTest(unittest.TestCase):
         Raichu
         """
         self.pocketbook = solve.create_pocketbook()
+        self.bs_pocketbook = solve.create_bs_pocketbook()
         for data in input_data.split():
             solve.add_pocketbook(self.pocketbook, data)
+            solve.add_bs_pocketbook(self.bs_pocketbook, data)
 
-        self.bs_pocketbook, self.bs_keys = solve.create_bs_pocketbook(self.pocketbook)
+        self.bs_pocketbook.sort(key=lambda r: r[0])
+        self.bs_keys = [p[0] for p in self.bs_pocketbook]
 
     def tearDown(self):
         del(self.pocketbook)
