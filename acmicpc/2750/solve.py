@@ -10,6 +10,7 @@ def read_data_to_list(input_list, input_count):
 def sort_select(input_list):
     list_len = len(input_list)
 
+    # O(n*n)
     for n in range(list_len):
         min_idx = n
         for i in range(n, list_len):
@@ -17,9 +18,34 @@ def sort_select(input_list):
             if input_list[min_idx] > input_list[i]:
                 min_idx = i
 
-        # exchange value
+        # swap value
         if n != min_idx:
             input_list[min_idx], input_list[n] = input_list[n], input_list[min_idx]
+
+
+def sort_insertion(input_list):
+    list_len = len(input_list)
+
+    # O(n*n)
+    for start_idx in range(1, list_len):
+        access_idx = start_idx-1
+        key = input_list[start_idx]
+
+        while access_idx >= 0:
+
+            # compare value that start index and access index
+            if input_list[access_idx] < key:
+                # pop and insert value
+                input_list.insert(access_idx+1, input_list.pop(start_idx))
+                break
+
+            # last comapre value
+            if access_idx == 0 and input_list[0] > key:
+                # pop and insert value
+                input_list.insert(access_idx, input_list.pop(start_idx))
+                break
+
+            access_idx -= 1
 
 
 if __name__ == '__main__':
