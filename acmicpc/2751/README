@@ -1,0 +1,29 @@
+= quick sorting =
+
+1. C
+time ./solve_quick < input_10000.txt
+
+real    0m0.028s
+user    0m0.009s
+sys 0m0.009s
+
+
+2. Python3
+time python solve.py < input_10000.txt
+
+real    0m0.261s
+user    0m0.174s
+sys 0m0.052s
+
+
+3. compare insert sorting
+time python solve_insert_sort.py < input_10000.txt
+
+real    0m6.217s
+user    0m6.048s
+sys 0m0.077s
+
+
+= conclusion =
+1. Quick sorting > Insert sorting
+2. C > Python
