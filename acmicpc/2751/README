@@ -16,14 +16,22 @@ user    0m0.174s
 sys 0m0.052s
 
 
-3. compare insert sorting
+= compare =
+1. compare insert sorting
 time python solve_insert_sort.py < input_10000.txt
 
 real    0m6.217s
 user    0m6.048s
 sys 0m0.077s
 
+2. compare merge sorting
+time python solve_merge_sort.py < input_10000.txt
+
+real    0m0.278s
+user    0m0.195s
+sys 0m0.047s
+
 
 = conclusion =
-1. Quick sorting > Insert sorting
-2. C > Python
+1. C > Python
+2. Quick sorting > Insert sorting
