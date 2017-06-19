@@ -1,0 +1,65 @@
+= intro =
+# input data count 10000
+> make
+
+
+= quick sorting =
+1. C
+
+real    0m0.010s
+user    0m0.006s
+sys 0m0.001s
+
+
+2. Python3.5.2
+
+real    0m0.265s
+user    0m0.153s
+sys 0m0.041s
+
+3. pypy3-2.4.0
+
+real    0m0.349s
+user    0m0.279s
+sys 0m0.040s
+
+
+= compare =
+1. insert sorting
+
+Python3.5.2
+
+real    0m6.217s
+user    0m6.048s
+sys 0m0.077s
+
+pypy3-2.4.0
+
+real    0m0.307s
+user    0m0.244s
+sys 0m0.035s
+
+2. merge sorting
+
+Python3.5.2
+
+real    0m0.228s
+user    0m0.174s
+sys 0m0.027s
+
+pypy3-2.4.0
+
+real    0m0.307s
+user    0m0.244s
+sys 0m0.035s
+
+
+= conclusion =
+1. C and Python3(CPython, pypy)
+ - C > Python
+
+2. Python3
+ - Quick > Merge > Insert sorting
+
+3. Python3 vs pypy
+ - case by case
