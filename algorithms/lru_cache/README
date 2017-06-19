@@ -1,0 +1,12 @@
+process lru ...
+
+real    0m0.605s
+user    0m0.495s
+sys 0m0.046s
+
+process python lru native ...
+ - CacheInfo(hits=993, misses=9007, maxsize=10000, currsize=9007)
+
+real    0m0.408s
+user    0m0.317s
+sys 0m0.045s

@@ -1,37 +1,24 @@
 import functools
-import urllib
+import json
 
 
-@functools.lru_cache(maxsize=32)
-def get_pep(num):
-    '''Retrieve text of a Python Enhancement Proposal'''
-    resource = 'http://www.python.org/dev/peps/pep-%04d/' % num
-    try:
-        #print('called %s' % (get_pep.__name__))
-        with urllib.request.urlopen(resource) as s:
-            return s.read()
-    except Exception as ex:
-        return 'Not Found' + str(ex)
+data = dict()
 
 
-@functools.lru_cache(maxsize=None)
-def fib(n):
-    #print('called %s' % (fib.__name__))
-    if n < 2:
-        return n
-    return fib(n-1) + fib(n-2)
+@functools.lru_cache(maxsize=10000)
+def get_value(key):
+    return data[key]
 
 
-if __name__ == '__main__':
-    # example1
-    for n in 8, 290, 308, 320, 8, 218, 320, 279, 289, 320, 9991:
-        pep = get_pep(n)
-        print(n, len(pep))
+if __name__ == "__main__":
+    with open("input.txt", "r") as f:
+        items = json.loads(f.read())
 
-    print(get_pep.cache_info())
-    print('='*40)
+        for item in items:
+            try:
+                value = get_value(item[0])
+            except KeyError:
+                data[item[0]] = item[1]
+                value = item[1]
 
-    # example2
-    result = [fib(n) for n in range(16)]
-    print(result)
-    print(fib.cache_info())
+    print(get_value.cache_info())
