@@ -1,0 +1,44 @@
+= array vs list =
+ - Performance is similar. But memory used is 1.5 times.
+
+
+
+1. Filename: native_array.py
+
+Line #    Mem usage    Increment   Line Contents ================================================
+    12     16.3 MiB      0.0 MiB   @profile
+    13                             def array_memory():
+    14     16.3 MiB      0.0 MiB       array1 = array.array('u')
+    15     21.3 MiB      5.0 MiB       for ch in make_random_key(1000000):
+    16     21.3 MiB      0.0 MiB           array1.fromunicode(ch)
+    17
+    18     21.4 MiB      0.1 MiB       print(array1.count('s'))
+    19     21.4 MiB      0.0 MiB       print(array1.count('u'))
+    20     21.4 MiB      0.0 MiB       print(array1.count('p'))
+
+
+
+real    1m26.289s
+user    1m3.865s
+sys     0m19.443s
+
+
+2. Filename: native_list.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    12     16.2 MiB      0.0 MiB   @profile
+    13                             def list_memory():
+    14     16.2 MiB      0.0 MiB       list1 = list()
+    15     24.8 MiB      8.5 MiB       for ch in make_random_key(1000000):
+    16     24.8 MiB      0.0 MiB           list1.append(ch)
+    17
+    18     25.1 MiB      0.4 MiB       print(list1.count('s'))
+    19     25.1 MiB      0.0 MiB       print(list1.count('u'))
+    20     25.1 MiB      0.0 MiB       print(list1.count('p'))
+
+
+
+real    1m21.236s
+user    1m1.432s
+sys     0m18.477s

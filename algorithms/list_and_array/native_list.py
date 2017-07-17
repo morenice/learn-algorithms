@@ -1,6 +1,26 @@
+import array
+import string
+import random
+from memory_profiler import profile
 
 
-if __name__ == "__main__":
+def make_random_key(key_len=10):
+    random_key_factor = string.ascii_lowercase + string.digits + string.ascii_uppercase
+    return ''.join(random.choice(random_key_factor) for _ in range(key_len))
+
+
+@profile
+def list_memory():
+    list1 = list()
+    for ch in make_random_key(1000000):
+        list1.append(ch)
+
+    print(list1.count('s'))
+    print(list1.count('u'))
+    print(list1.count('p'))
+
+
+def list_sample():
     # list are very flexible and can hold completely heterogeneous, arbitrary data,
     # and they can be appended to very efficiently, in amortized constant time.
 
@@ -19,3 +39,8 @@ if __name__ == "__main__":
 
     li.insert(li.index('a'), 'c')
     print(li)
+
+
+if __name__ == "__main__":
+    list_memory()
+    #list_sample()
