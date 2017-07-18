@@ -1,0 +1,19 @@
+deque-based stack has similar performance to list-based stack.
+
+
+1. list-based stack
+
+time python stack_list.py
+
+real    0m0.209s
+user    0m0.143s
+sys 0m0.032s
+
+
+2. deque-based stack
+
+time python stack_deque.py
+
+real    0m0.192s
+user    0m0.129s
+sys 0m0.030s

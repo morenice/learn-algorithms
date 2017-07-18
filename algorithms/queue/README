@@ -1,0 +1,17 @@
+deque-based queue is 30 times faster than list-based queue.
+
+
+1. list-based queue
+time python native_queue.py
+
+real    0m21.060s
+user    0m20.426s
+sys 0m0.225s
+
+
+2. deque-based queue
+time python native_dequeue.py
+
+real    0m0.215s
+user    0m0.140s
+sys 0m0.037s
