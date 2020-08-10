@@ -1,3 +1,3 @@
 # The learning algorithm.
 
-The directory is divided by website.
+Data strcuture and algorithms using python3
